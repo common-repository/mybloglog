@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>MyBlogLog Wordpress Plugin: Style Guide</title>
+	<style>
+	dt {font-style: italic;}
+	dd {margin-bottom: 1em;}
+	h1 {border-bottom: 2px solid black;}
+	h2 {border-bottom: 1px dashed black; margin-top: 1.5em;}
+	h4 {text-decoration: underline;}
+	li code {font-weight: bold;}
+	</style>
+</head>
+<body>
+	<h1>MyBlogLog Wordpress Plugin: Style Guide</h1>
+	<p>
+		<a href="documentation.html">Return to the main documentation</a>
+	</p>
+	<p>
+		This guide will help you find the necessary selectors to implement CSS rules to alter the members pages and sidebar elements as you wish.
+	</p>
+	
+	<h2>Members Listing Page</h2>
+	<h3>div#mybloglog-members</h3>
+	<ul>
+		<li><code>h2</code> - Members List title</li>
+		<li><code>p.mbl-nav</code> - Pagination (previous/next)</li>
+		<li><code>p.mbl-listuser</code> - Individual user listing</li>
+	</ul>
+	
+	<h2>Individual Member Page</h2>
+	<h3>div#mybloglog-member</h3>
+	<ul>
+		<li><code>p.mbl-nav</code> - Return to members listing</li>
+		<li><code>h2</code> - Screen Name</li>
+		<li><code>p.mbl-icon</code> - MyBlogLog avatar with link to MyBlogLog profile</li>
+		<li><code>p.mbl-services</code> - Icons with links to user's listed services (Twitter, Digg, etc.)</li>
+		<li><code>p.mbl-age</code> - User's age</li>
+		<li><code>p.mbl-location</code> - User's location</li>
+		<li><code>p.mbl-bio</code> - User's bio</li>
+		<li><code>h3</code> - Heading for sites that the user authors</li>
+		<li><code>p.mbl-sites</code> - Thumbnail and link to user's site (the class <code>center</code> is also applied to this element)</li>
+		<li><code>p.listuser</code> - Individual user listing</li>
+	</ul>
+	
+	<h2>Widgets</h2>
+	<h3>li#mybloglog-members.widget_mybloglog_plugin_members</h3>
+	<ul>
+		<li><code>h2</code> - Widget title</li>
+		<li><code>p</code> - User avatar and screen name</li>
+	</ul>
+	
+	<h3>li#mybloglog-readers.widget_mybloglog_plugin_readers</h3>
+	<ul>
+		<li><code>h2</code> - Widget title</li>
+		<li><code>p</code> - User avatar and screen name</li>
+	</ul>
+	
+	<h2>Sidebar (for non-widget installation)</h2>
+	<p>You can wrap the sidebar calls in a <code>div</code> as needed</p>
+</body>
+</html>

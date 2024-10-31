@@ -1,0 +1,19 @@
+MyBlogLog WordPress Plugin
+http://sitening.site/mybloglog/
+
+Change Log
+2008/03/02 - Version 0.9.2
+==========
+ * Upgraded to the latest version of PHP-MyBlogLog
+     - Fixed API calls to send all parameters with GET (instead of POST)
+     - Implemented two new API calls
+
+
+2008/02/12 - Version 0.9.1
+==========
+ * Added del.icio.us links back in to the member profile pages
+
+
+2008/02/05 - Version 0.9
+==========
+ * Initial release

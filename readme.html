@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>MyBlogLog Wordpress Plugin</title>
+	<style>
+	dt {font-style: italic;}
+	dd {margin-bottom: 1em;}
+	h1 {border-bottom: 2px solid black;}
+	h2 {border-bottom: 1px dashed black; margin-top: 1.5em;}
+	h4 {text-decoration: underline;}
+	</style>
+</head>
+<body>
+	<h1>MyBlogLog Wordpress Plugin</h1>
+	<p>
+		Homepage: <a href="http://sitening.com/mybloglog/">http://sitening.com/mybloglog/</a><br />
+		Created by <a href="http://sitening.com/">Sitening</a> / Jason Tan
+	</p>
+	<p>
+		Last update: <strong>2008/03/02</strong><br />
+		Version number: <strong>0.92</strong> - <a href="http://sitening.com/mybloglog/"><strong>download</strong></a>
+	</p>
+	
+	<ul>
+		<li><a href="#installation">Installation</a></li>
+		<li>
+			<a href="#configuration">Configuration</a>
+			<ul>
+				<li><a href="#settings">MyBlogLog Settings</a></li>
+				<li><a href="#list">Member/Reader List Display Settings</a></li>
+				<li><a href="#pages">Member Pages Settings</a></li>
+				<li><a href="#cache">Cache Settings</a></li>
+			</ul>
+		</li>
+		<li><a href="#usage">Usage</a></li>
+		<li><a href="#style">Presentation</a> - <a href="style.html"><strong>Style Guide</strong></a></li>
+		<li><a href="#credits">Credits</a></li>
+	</ul>
+	
+	<h2><a name="installation"></a>Installation</h2>
+	<ol>
+		<li><a href="http://sitening.com/mybloglog/">Download</a> the zipped plugin.</li>
+		<li>Unzip the plugin and move the <strong>mybloglog</strong> folder inside your wordpress plugins directory ([your blog directory]<strong>/wp-content/plugins</strong>).</li>
+		<li>Make the <strong>cache</strong> directory writable by your webserver (i.e. <code>chmod 777 cache</code>).</li>
+		<li>Login to WordPress as an administrator and click on the <strong>Plugins</strong> tab.</li>
+		<li>Find the MyBlogLog plugin and click on <strong>Activate</strong></li>
+	</ol>
+	
+	<h2><a name="configuration"></a>Configuration</h2>
+	<p>Once the plugin has been activated, there will be an additional sub-tab under Plugins titled <strong>MyBlogLog Configuration</strong>.  Click on this tab to access the configuration options for the MyBlogLog plugin.</p>
+	<h3><a name="settings"></a>MyBlogLog Settings</h3>
+	<dl>
+		<dt>Your MyBlogLog Application ID</dt>
+		<dd>This Wordpress plugin makes use of the MyBlogLog API.  In order to access the API, you will need to provide your MyBlogLog API application ID.  If you do not have one, visit the <a href="http://developer.yahoo.com/mybloglog">MyBlogLog Web Services</a> homepage.</dd>
+		<dt>Your MyBlogLog Community ID</dt>
+		<dd>Your MyBlogLog community has its own unique ID.  One way you can find this ID is be looking at the provided tracking script code for your community (see below on finding the tracking script code).  You should notice a portion of the tracking script that reads "jsserv.php?mblID=<strong>[long string of numbers]</strong>". The string of numbers is your MyBlogLog Community ID.</dd>
+		<dt>Tracking Script Code</dt>
+		<dd>The plugin can take care of installing the tracking script code for you.  If you have already inserted the code into your Wordpress theme, you can skip this.  Login to MyBlogLog and click on "Get Widgets". Copy the code listed under "Stats Tracking Script" and paste it in the Tracking Script Code area in the plugin configuration.</dd>
+	</dl>
+	<h3><a name="list"></a>Member/Reader List Display Settings</h3>
+	<dl>
+		<dt>List delimiter</dt>
+		<dd>Default: <strong>&lt;li&gt;</strong><br />This chooses the HTML tag that wraps each member in the sidebar list.  If you are displaying your member and reader lists inside of a list element (e.g. <code>&lt;ul&gt;</code>), select <strong>&lt;li&gt;</strong> to wrap the members in list item tags.  If you are not using a list element, select <strong>&lt;p&gt;</strong> to wrap the members in paragraph tags.</dd>
+		<dt>Avatar size</dt>
+		<dd>Default: <strong>30 pixels</strong><br />This specifies the size (in pixels) of the avatar icon in the sidebar list. Note: there is only one image size available for the user avatars, which is a 48x48 GIF.  The icon is resized in the users browser to the size you specify here by adding height and width attributes to the image tag.</dd>
+	</dl>
+	<h3><a name="pages"></a>Member Pages Settings</h3>
+	<dl>
+		<dt>Base URL</dt>
+		<dd>Default: <strong>members/</strong><br />This specifies the URL path for the members listing and individual member pages.  Using the default setting of <strong>members/</strong> and an example blog located at <code>http://example.com/blog/</code>, the members listing page would be located at <code>http://example.com/blog/members/</code>, and individual member pages would be found at <code>http://example.com/blog/members/screenname</code> where "screenname" is the MyBlogLog screen name of one of your community members.  Make sure you choose a path that does not conflict with any other sections of your blog.  The path can be multiple levels deep (e.g. <strong>people/mybloglog/</strong>).  If you only want to use the plugin sidebars and disable the member listing and member pages, <strong>leave this field blank</strong>.</dd>
+		<dt>Sidebar position</dt>
+		<dd>Default: <strong>after</strong><br />In the default Kubrick theme for Wordpress 2, the order of HTML code is: <code>header, content, sidebar, footer</code>.  However, some themes place the sidebar before the content.  In order for the member pages to display correctly, you will need to choose whether your sidebar should come <strong>before</strong> or <strong>after</strong> the main content when generating the member pages.</dd>
+	</dl>
+	
+	<h3><a name="cache"></a>Cache Settings</h3>
+	<dl>
+		<dt>Directory</dt>
+		<dd>Make sure the <strong>cache</strong> directory inside the mybloglog plugin folder is writable by your webserver.</dd>
+		<dt>Cache life</dt>
+		<dd>Default: <strong>60 minutes</strong><br />Results from API calls to the MyBlogLog API will be cached.  Set the time when cached data should expire.  Longer times will improve performance, but means you may have out of date information about your users.  Note: <strong>The recent visitors sidebar widget doesn't use the cache to ensure that the latest readers (including the current visitor to your site) will show up in the sidebar.</strong></dd>
+	</dl>
+	
+	<h2><a name="usage"></a>Usage</h2>
+	<h3>Member pages and listing</h3>
+	<p>Member pages and listing will be automatically created as long as a path is specified under the <strong>Member Pages Settings</strong>.</p>
+	<p>To display a link to your members listing page, insert the following code where you want the link to appear:</p>
+	<pre>&lt;?php mybloglog_members_link(); ?&gt;</pre>
+	
+	<h3>Sidebar modules</h3>
+	<h4>Widgetized WordPress</h4>
+	<p>If your WordPress installation and theme supports widgets, you can add the MyBlogLog Members and Readers widgets to your sidebar.  In your WordPress admin, go to <strong>Presentation</strong> -&gt; <strong>Widgets</strong></p>
+	
+	<h4>Non-widgetized WordPress</h4>
+	<p>If you're not using widgets, you can manually insert code into your theme's sidebar.</p>
+	
+	<p>To display the top members in the sidebar, insert the following code into <strong>sidebar.php</strong> in your themes folder:</p>
+	<pre>&lt;h2&gt;Community Members&lt;/h2&gt;
+&lt;?php mybloglog_members(); ?&gt;
+&lt;?php mybloglog_members_link("view all"); ?&gt;</pre>
+	
+	<p>To display the top 8 members in a list, make sure the list delimiter option is set to <strong>&lt;li&gt;</strong> and insert the following code:</p>	<pre>&lt;h2&gt;Community Members&lt;/h2&gt;
+&lt;ul&gt;
+&lt;?php mybloglog_members(8); ?&gt;
+&lt;/ul&gt;</pre>
+
+	<p>To display the 5 latest visitors to your site (similar to the MyBlogLog javascript widget) insert the following code :</p>
+	<pre>&lt;h2&gt;Recent Visitors&lt;/h2&gt;
+&lt;?php mybloglog_readers(); ?&gt;</pre>
+
+	<h2><a name="style"></a>Presentation</h2>
+	<p>The MyBlogLog WordPress plugin should integrate well into any WordPress theme.  (Be sure you correctly configure the <a href="#pages">sidebar position</a> setting to match your theme).</p>
+	<p>If you need to adjust elements that are generated by the plugin, you can do so by adding additional rules to your style sheet (generally found in the folder of your current theme).  For help finding the correct selectors you need to style, use the included <a href="style.html">style guide</a></p>
+
+	<h2><a name="credits"></a>Credits</h2>
+	<h3>PHP-MyBlogLog</h3>
+	<p>The MyBlogLog WordPress plugin uses the <a href="http://php-mybloglog.googlecode.com/">PHP-MyBlogLog</a> wrapper to interface with the MyBlogLog API.</p>
+</body>
+</html>

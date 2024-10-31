@@ -1,0 +1,1 @@
+This text file's only purpose is to prevent wordpress.org from ignoring the empty cache folder when distributing the plugin.
